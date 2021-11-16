@@ -1,0 +1,77 @@
+<SignInScreen>:
+    name: 'signinscreen'
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Column:
+        MDToolbar:
+            elevation: dp(5)
+            title: "Release new product"
+            left_action_items: [["arrow-left", lambda x: root.Cancel()]]
+        Column:
+            halign: 'center'
+            valign: 'center'
+            padding: dp(100)
+            spacing: dp(20)
+            MDLabel:
+                id: label
+                text: 'Release new product'
+                font_size: dp(20)
+                color: 0,0,0,1
+            Widget:
+                expandable: True
+            SignInTextField:
+                id: product_field
+                hint_text: 'Product'
+            SignInTextField:
+                id: details_field
+                hint_text: 'Content'
+            SignInTextField:
+                id: type_field
+                hint_text: 'Type'
+            SignInTextField:
+                id: money_field
+                hint_text: 'Price(HK$)'
+            MDLabel:
+                id: picture
+                text: 'Please choose a picture'
+                font_size: dp(15)
+                color: 0,0,0,1
+            Row:
+                padding: dp(20)
+                spacing: dp(10)
+                valign: 'center'
+                halign: 'center'
+                MDFillRoundFlatIconButton:
+                    icon: 'shape-rectangle-plus'
+                    md_bg_color:1,0.85,0.3,0.5
+                    text: 'Picture'
+                    text_color:0.1,0.1,0.1,1
+                    icon_color:0.1,0.1,0.1,1
+                    on_release: root.Choose_pic()
+                MDFillRoundFlatIconButton:
+                    icon: 'basket-plus-outline'
+                    md_bg_color:1,0.85,0.3,0.5
+                    text: 'Release'
+                    text_color:0.1,0.1,0.1,1
+                    icon_color:0.1,0.1,0.1,1
+                    on_release: root.show_dialog()
+                MDFillRoundFlatIconButton:
+                    md_bg_color:1,0.85,0.3,0.5
+                    icon: 'keyboard-return'
+                    text: 'Return'
+                    text_color:0.1,0.1,0.1,1
+                    icon_color:0.1,0.1,0.1,1
+                    on_release: root.Cancel()
+<SignInTextField@MDTextField>
+    color_mode: 'custom'
+    line_color_focus: 0,0,0,1
+    line_color_normal: 0,0,0,1
+
+    hint_text_color: 0,0,0,1
+    current_hint_text_color: 0,0,0,1
+    text_color:0,0,0,1
+    canvas.before:
+        Color:
+            rgba: 0,0,0,1

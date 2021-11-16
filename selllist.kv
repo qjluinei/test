@@ -1,0 +1,148 @@
+<ListScreen2>:
+    name: 'ListScreen2'
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Column:
+        MDToolbar:
+            elevation: dp(5)
+            title: "My Item Details"     #后面差一个返回路径left_action_items: [["arrow-left", lambda x: root.go_back()]]，go_back终点等待讨论
+        ScrollView:
+            Column:
+                id: container
+                fit_content_height: True
+                padding: dp(20)
+                spacing: dp(5)
+        MDFillRoundFlatIconButton:
+            md_bg_color:1,0.85,0.3,0.5
+            icon: 'basket-plus-outline'
+            text: 'Release new product'
+            text_color:0.1,0.1,0.1,1
+            icon_color:0.1,0.1,0.1,1
+            on_release: root.clickrelease()
+        MDLabel:
+            text: 'userID'
+            halign:'right'
+<MessageItem>:
+    tailing_width: dp(100)
+    prize:''
+    post_time: ''
+    author: ''
+    on_release: self.show_details()
+    MDLabel:
+        text: root.prize
+        role: 'leading'
+        font_size: dp(15)
+        halign: 'right'
+    MDLabel:
+        text: root.post_time
+        role: 'tailing'
+        font_size: dp(10)
+        halign: 'right'
+<DetailScreen>:
+    name: 'DetailScreen'
+    title: ''
+    content: ''
+    post_time: ''
+    author: ''
+    prize:''
+    condition:''
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source:'releasepic.png'
+    Column:
+        ScrollView:
+            Column:
+                padding: dp(10)
+                spacing: dp(10)
+                halign: 'left'
+                valign: 'center'
+                fit_content_height: True
+                MDFillRoundFlatIconButton:
+                    md_bg_color:1,0.85,0.3,0.5
+                    icon: 'keyboard-return'
+                    text: 'Return'
+                    text_color:0.1,0.1,0.1,1
+                    icon_color:0.1,0.1,0.1,1
+                    on_release: root.clickme()
+                MDLabel:
+                    text: 'Product name:'
+                    halign:'left'
+                    font_size: dp(20)
+                Column:
+                    size_hint_y: None
+                    height: dp(50)
+                    background_color: 1,1,1,0.7
+                    valign: 'center'
+                    halign: 'left'
+                    radius: dp(10)
+                    MDLabel:
+                        text: root.title
+                MDLabel:
+                    text: 'Seller name:'
+                    halign:'left'
+                    font_size: dp(20)
+                Column:
+                    size_hint_y: None
+                    height: dp(50)
+                    background_color: 1,1,1,0.7
+                    valign: 'center'
+                    halign: 'left'
+                    radius: dp(10)
+                    MDLabel:
+                        text: root.author
+                MDLabel:
+                    text: 'Product Details:'
+                    halign:'left'
+                    font_size: dp(20)
+                Column:
+                    size_hint_y: None
+                    height: dp(50)
+                    background_color: 1,1,1,0.7
+                    valign: 'center'
+                    halign: 'left'
+                    radius: dp(10)
+                    MDLabel:
+                        text: root.content
+                MDLabel:
+                    text: 'Post time:'
+                    halign:'left'
+                    font_size: dp(20)
+                Column:
+                    size_hint_y: None
+                    height: dp(50)
+                    background_color: 1,1,1,0.7
+                    valign: 'center'
+                    halign: 'left'
+                    radius: dp(10)
+                    MDLabel:
+                        text: root.post_time
+                MDLabel:
+                    text: 'Price:'
+                    halign:'left'
+                    font_size: dp(20)
+                Column:
+                    size_hint_y: None
+                    height: dp(50)
+                    background_color: 1,1,1,0.7
+                    valign: 'center'
+                    halign: 'left'
+                    radius: dp(10)
+                    MDLabel:
+                        text: root.prize
+                MDLabel:
+                    text: 'Condition:'
+                    halign:'left'
+                    font_size: dp(20)
+                Column:
+                    size_hint_y: None
+                    height: dp(50)
+                    background_color: 1,1,1,0.7
+                    valign: 'center'
+                    halign: 'left'
+                    radius: dp(10)
+                    MDLabel:
+                        text: root.condition
